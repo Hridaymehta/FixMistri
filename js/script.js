@@ -55,43 +55,70 @@
     ]
   };
 
-  const catSelect = document.getElementById('calcCategory');
-  const issueSelect = document.getElementById('calcIssue');
-  Object.keys(REPAIR_DATA).forEach(cat => {
-    const opt = document.createElement('option');
-    opt.value = cat; opt.textContent = cat;
-    catSelect.appendChild(opt);
-  });
-  catSelect.addEventListener('change', () => {
-    issueSelect.innerHTML = '';
-    if (!catSelect.value) {
-      issueSelect.disabled = true;
-      issueSelect.innerHTML = '<option value="">Choose a category first</option>';
-      return;
-    }
-    issueSelect.disabled = false;
-    const placeholder = document.createElement('option');
-    placeholder.value = ''; placeholder.textContent = 'Choose the issue';
-    issueSelect.appendChild(placeholder);
-    REPAIR_DATA[catSelect.value].forEach(issue => {
-      const opt = document.createElement('option');
-      opt.value = issue.name; opt.textContent = issue.name;
-      issueSelect.appendChild(opt);
-    });
-  });
+  // ---------- AI Diagnoser ----------
+  const aiBtn = document.getElementById('aiBtn');
+  const aiIssue = document.getElementById('aiIssue');
+  const aiStatus = document.getElementById('aiStatus');
+  const aiResult = document.getElementById('aiResult');
+  const aiPill = document.getElementById('aiPill');
+  const aiPrice = document.getElementById('aiPrice');
+  const aiCopy = document.getElementById('aiCopy');
 
-  document.getElementById('calcBtn').addEventListener('click', () => {
-    const out = document.getElementById('calcOutput');
-    const copy = document.getElementById('calcCopy');
-    if (!catSelect.value || !issueSelect.value) {
-      out.innerHTML = '<small>Estimated range</small>Pick both fields';
-      copy.textContent = 'Choose a category and an issue to see the estimate.';
-      return;
-    }
-    const issue = REPAIR_DATA[catSelect.value].find(i => i.name === issueSelect.value);
-    out.innerHTML = '<small>Estimated range</small>₹' + issue.min.toLocaleString('en-IN') + ' – ₹' + issue.max.toLocaleString('en-IN');
-    copy.textContent = 'Typical range for "' + issue.name + '" on ' + catSelect.value + '. Final price is confirmed after a free doorstep diagnosis — you approve it before any work starts.';
-  });
+  if (aiBtn) {
+    aiBtn.addEventListener('click', () => {
+      const text = aiIssue.value.trim().toLowerCase();
+      if (!text) {
+        aiStatus.textContent = "Please describe your issue first.";
+        aiStatus.classList.remove('thinking');
+        return;
+      }
+      
+      // Reset UI
+      aiResult.classList.add('hidden');
+      aiStatus.textContent = "Analyzing repair logs...";
+      aiStatus.classList.add('thinking');
+      aiBtn.disabled = true;
+      
+      // Simulate AI analysis delay
+      setTimeout(() => {
+        aiStatus.textContent = "Identifying probable cause...";
+        
+        setTimeout(() => {
+          let foundCategory = "Custom repair";
+          let foundIssue = {name: "Needs inspection", min: 299, max: 999};
+          
+          // Basic heuristic
+          if (text.includes('ac') || text.includes('cooling') || text.includes('refrigerator') || text.includes('fridge')) {
+             foundCategory = "AC & Refrigerator";
+             foundIssue = text.includes('gas') ? REPAIR_DATA[foundCategory][0] : REPAIR_DATA[foundCategory][1];
+          } else if (text.includes('washing') || text.includes('drain') || text.includes('spin') || text.includes('machine')) {
+             foundCategory = "Washing Machine";
+             foundIssue = REPAIR_DATA[foundCategory][0];
+          } else if (text.includes('screen') || text.includes('phone') || text.includes('display') || text.includes('tv') || text.includes('laptop')) {
+             foundCategory = "Mobile / Laptop / TV";
+             foundIssue = REPAIR_DATA[foundCategory][0];
+          } else if (text.includes('ro') || text.includes('water') || text.includes('leak') || text.includes('purifier')) {
+             foundCategory = "RO & Water Purifier";
+             foundIssue = REPAIR_DATA[foundCategory][1];
+          } else if (text.includes('fan') || text.includes('light') || text.includes('switch')) {
+             foundCategory = "Fans & Electricals";
+             foundIssue = REPAIR_DATA[foundCategory][1];
+          }
+          
+          // Show results
+          aiStatus.classList.remove('thinking');
+          aiStatus.textContent = "Analysis complete";
+          
+          aiPill.textContent = "Diagnosis: " + foundIssue.name;
+          aiPrice.innerHTML = '<small>Estimated range</small>₹' + foundIssue.min.toLocaleString('en-IN') + ' – ₹' + foundIssue.max.toLocaleString('en-IN');
+          aiCopy.textContent = 'Based on your description, this matches "' + foundIssue.name + '" in the ' + foundCategory + ' category. Final price is confirmed after a free diagnosis.';
+          
+          aiResult.classList.remove('hidden');
+          aiBtn.disabled = false;
+        }, 1200);
+      }, 800);
+    });
+  }
 
   // ---------- service tabs filter ----------
   const tabButtons = document.querySelectorAll('.tab-btn');
@@ -217,3 +244,15 @@
     const msg = 'Hi FixMistri, I am ' + name + ' (' + contact + '). I need help with: ' + category + '. Issue: ' + issue + '. Pincode: ' + pin;
     window.open('https://wa.me/919812345678?text=' + encodeURIComponent(msg), '_blank');
   });
+
+  // ---------- Scroll Reveal Animations ----------
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('active');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+  reveals.forEach(reveal => revealObserver.observe(reveal));

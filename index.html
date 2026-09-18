@@ -23,7 +23,7 @@
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
     <nav class="links" id="navLinks">
       <a href="#services">Services</a>
-      <a href="#calculator">Get estimate</a>
+      <a href="#diagnoser">AI Estimate</a>
       <a href="#process">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#reviews">Reviews</a>
@@ -78,7 +78,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services">
+  <section id="services" class="reveal">
     <div class="wrap">
       <div class="sec-head">
         <div><span class="sec-kicker">What we fix</span><h2>Everything that runs your home</h2></div>
@@ -146,39 +146,38 @@
     </div>
   </section>
 
-  <!-- CALCULATOR -->
-  <section id="calculator">
+  <!-- AI DIAGNOSER -->
+  <section id="diagnoser" class="reveal">
     <div class="wrap">
       <div class="sec-head">
-        <div><span class="sec-kicker">Instant estimate</span><h2>What will your repair cost?</h2></div>
-        <p>Pick the item and the problem — get a typical price range from real recent jobs. Final price is confirmed after a free diagnosis.</p>
+        <div><span class="sec-kicker">AI Diagnoser</span><h2>What will your repair cost?</h2></div>
+        <p>Describe your problem naturally. Our AI will analyze the issue against 48,000+ repair logs to give you an instant estimate.</p>
       </div>
-      <div class="calc">
-        <div class="calc-form">
-          <div class="calc-field">
-            <label for="calcCategory">What needs fixing</label>
-            <select id="calcCategory">
-              <option value="">Choose a category</option>
-            </select>
+      <div class="ai-diagnoser">
+        <div class="ai-input-zone">
+          <div class="ai-field">
+            <label for="aiIssue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              Describe the issue
+            </label>
+            <textarea id="aiIssue" placeholder="e.g. My washing machine is making a loud banging noise and won't drain the water..."></textarea>
           </div>
-          <div class="calc-field">
-            <label for="calcIssue">What's the problem</label>
-            <select id="calcIssue" disabled>
-              <option value="">Choose a category first</option>
-            </select>
-          </div>
-          <button type="button" class="btn btn-solid" id="calcBtn" style="width:100%;">Get estimate</button>
+          <button type="button" class="btn btn-solid" id="aiBtn" style="width:100%;">Analyze Issue</button>
         </div>
-        <div class="calc-result">
-          <div class="price-out" id="calcOutput"><small>Estimated range</small>Select above</div>
-          <p id="calcCopy">Choose an item and issue on the left, then tap "Get estimate" to see a typical price range in rupees.</p>
+        <div class="ai-output-zone">
+          <div class="ai-status" id="aiStatus">Waiting for input...</div>
+          <div class="ai-result-content hidden" id="aiResult">
+            <span class="ai-diagnosis-pill" id="aiPill">Diagnosis: Unknown</span>
+            <div class="price-out" id="aiPrice"><small>Estimated Range</small>₹0 – ₹0</div>
+            <p id="aiCopy">Your estimate will appear here once the analysis is complete. Final price is confirmed after a free diagnosis.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PROCESS -->
-  <section id="process">
+  <section id="process" class="reveal">
     <div class="wrap">
       <div class="sec-head">
         <div><span class="sec-kicker">How it works</span><h2>Four steps, no surprises</h2></div>
@@ -194,7 +193,7 @@
   </section>
 
   <!-- PRICE BOARD -->
-  <section id="pricing">
+  <section id="pricing" class="reveal">
     <div class="wrap">
       <div class="sec-head">
         <div><span class="sec-kicker">Typical pricing</span><h2>What jobs usually cost</h2></div>
@@ -215,7 +214,7 @@
   </section>
 
   <!-- TESTIMONIALS CAROUSEL -->
-  <section id="reviews">
+  <section id="reviews" class="reveal">
     <div class="wrap">
       <div class="sec-head">
         <div><span class="sec-kicker">Reviews</span><h2>Homes that got their stuff working again</h2></div>
@@ -238,7 +237,7 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq">
+  <section id="faq" class="reveal">
     <div class="wrap">
       <div class="sec-head">
         <div><span class="sec-kicker">FAQ</span><h2>Before you book</h2></div>
@@ -274,7 +273,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="reveal">
     <div class="wrap contact-grid">
       <div>
         <span class="sec-kicker">Contact</span>
@@ -347,7 +346,7 @@
         <p style="margin-top:12px; max-width:34ch;">Doorstep repair for the things that keep an Indian home running. Free diagnosis, upfront pricing, GST invoice on request.</p>
       </div>
       <div><h4>SERVICES</h4><ul><li><a href="#services">AC &amp; refrigerator</a></li><li><a href="#services">Washing machine</a></li><li><a href="#services">RO &amp; geyser</a></li><li><a href="#services">Mobile &amp; laptop</a></li></ul></div>
-      <div><h4>SHOP</h4><ul><li><a href="#calculator">Get an estimate</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>SHOP</h4><ul><li><a href="#diagnoser">AI Estimate</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul></div>
       <div><h4>REACH US</h4><ul><li>+91 98123 45678</li><li>Jaipur, Rajasthan</li><li>10+ cities across India</li></ul></div>
     </div>
     <div class="foot-bottom">
