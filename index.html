@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FixMistri — Doorstep repair, sahi keemat</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#EDE7DA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </span>
+      <span class="brand-name">FixMistri<span>Sahi Fix. Sahi Keemat.</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <nav class="links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#calculator">Get estimate</a>
+      <a href="#process">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-solid nav-cta">Book a repair</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" style="padding-top:48px;">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="job-tag"><span class="dot"></span> TECHNICIANS AVAILABLE TODAY — 10+ CITIES</span>
+        <h1>Something broken at home?<br>We'll fix it at your door.</h1>
+        <p class="hero-sub">AC, fridge, washing machine, RO, geyser, mobile, laptop, furniture — one call books a technician. Upfront pricing in rupees, no hidden charges after the job's done.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-solid">Book a repair</a>
+          <a href="https://wa.me/919812345678?text=Hi%20FixMistri%2C%20I%20need%20help%20with%20a%20repair" target="_blank" rel="noopener" class="btn btn-wa">
+            <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.8-1.4-1.7-1.5-2-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.9 14a8.2 8.2 0 0 1-11.7 1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12a8.1 8.1 0 0 1-2.3 4z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b class="count" data-target="48000">0</b><span>Homes served across India</span></div>
+          <div class="stat"><b class="count" data-target="75">0</b><span>Min average arrival time</span></div>
+          <div class="stat"><b class="count" data-target="6">0</b><span>Month service warranty</span></div>
+        </div>
+      </div>
+
+      <div class="hero-ticket ticket">
+        <div class="ticket-head"><span>SERVICE TICKET</span><b>#FM-7742</b></div>
+        <div class="ticket-line"><span class="lbl">Item</span><span>Split AC, 1.5 ton</span></div>
+        <div class="ticket-line"><span class="lbl">Issue</span><span>Not cooling, low gas</span></div>
+        <div class="ticket-line"><span class="lbl">Visiting charge</span><span>₹99, waived on repair</span></div>
+        <div class="ticket-line"><span class="lbl">Quoted price</span><span>₹1,450, approved</span></div>
+        <div class="ticket-line"><span class="lbl">Status</span><span>Technician on the way</span></div>
+        <div class="ticket-stamp">YOU SEE THE PRICE BEFORE WE START — EVERY TIME</div>
+
+        <div class="pin-check">
+          <label for="pincode">Check if we service your area</label>
+          <div class="pin-row">
+            <input type="text" id="pincode" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit pincode">
+            <button type="button" id="pinBtn">Check</button>
+          </div>
+          <p class="pin-result mono" id="pinResult"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="sec-kicker">What we fix</span><h2>Everything that runs your home</h2></div>
+        <p>Filter by type, or just scroll — most jobs across these categories are handled the same day.</p>
+      </div>
+
+      <div class="tabs" id="tabGroup" role="tablist">
+        <button class="tab-btn" aria-pressed="true" data-filter="all">All services</button>
+        <button class="tab-btn" aria-pressed="false" data-filter="appliances">Appliances</button>
+        <button class="tab-btn" aria-pressed="false" data-filter="electronics">Electronics</button>
+        <button class="tab-btn" aria-pressed="false" data-filter="home">Home &amp; furniture</button>
+        <button class="tab-btn" aria-pressed="false" data-filter="electrical">Electrical</button>
+      </div>
+
+      <div class="service-grid" id="serviceGrid">
+        <div class="service-card ticket" data-group="appliances">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="4" y1="10" x2="20" y2="10"/><circle cx="12" cy="15" r="2.6"/></svg></div>
+          <h3>AC &amp; refrigerator</h3>
+          <p>Gas refill, not cooling, compressor noise, water leakage, annual servicing.</p>
+          <span class="service-tag">SAME-DAY IN MOST AREAS</span>
+        </div>
+        <div class="service-card ticket" data-group="appliances">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="12" cy="13" r="1.4" fill="currentColor" stroke="none"/><line x1="7" y1="6" x2="9" y2="6"/></svg></div>
+          <h3>Washing machine</h3>
+          <p>Not draining, drum bearing noise, motor faults, timer and panel issues.</p>
+          <span class="service-tag">DOORSTEP SERVICE</span>
+        </div>
+        <div class="service-card ticket" data-group="appliances">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3v6a3 3 0 0 0 3 3v9M18 3v9a3 3 0 0 1-3 3v0"/><line x1="9" y1="21" x2="15" y2="21"/></svg></div>
+          <h3>RO &amp; water purifier</h3>
+          <p>Filter change, low water flow, leakage, membrane replacement, new installs.</p>
+          <span class="service-tag">FILTER STOCK CARRIED</span>
+        </div>
+        <div class="service-card ticket" data-group="appliances">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="3"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="12" x2="15" y2="12"/></svg></div>
+          <h3>Geyser &amp; water heater</h3>
+          <p>No heating, tripping, leakage, thermostat replacement, wall-mount installs.</p>
+          <span class="service-tag">WINTER RUSH — BOOK EARLY</span>
+        </div>
+        <div class="service-card ticket" data-group="electronics">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+          <h3>Mobile, laptop &amp; TV</h3>
+          <p>Screen and battery replacement, software issues, display and HDMI faults.</p>
+          <span class="service-tag">CARRY-IN OR PICKUP</span>
+        </div>
+        <div class="service-card ticket" data-group="appliances">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="6" width="16" height="13" rx="1"/><line x1="4" y1="10" x2="20" y2="10"/><circle cx="8" cy="8" r="0.7" fill="currentColor" stroke="none"/></svg></div>
+          <h3>Kitchen appliances</h3>
+          <p>Mixer, grinder, microwave and chimney repair — motors, wiring, and blades.</p>
+          <span class="service-tag">SPARE PARTS ON VISIT</span>
+        </div>
+        <div class="service-card ticket" data-group="home">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6M4 14h16M6 20v-2M18 20v-2"/></svg></div>
+          <h3>Furniture &amp; modular</h3>
+          <p>Wardrobe hinges, drawer channels, modular kitchen fittings, wood repair.</p>
+          <span class="service-tag">PICKUP AVAILABLE</span>
+        </div>
+        <div class="service-card ticket" data-group="electrical">
+          <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+          <h3>Fans &amp; electricals</h3>
+          <p>Ceiling fan repair, switchboard faults, wiring issues, MCB tripping.</p>
+          <span class="service-tag">SAFETY-CHECKED WORK</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section id="calculator">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="sec-kicker">Instant estimate</span><h2>What will your repair cost?</h2></div>
+        <p>Pick the item and the problem — get a typical price range from real recent jobs. Final price is confirmed after a free diagnosis.</p>
+      </div>
+      <div class="calc">
+        <div class="calc-form">
+          <div class="calc-field">
+            <label for="calcCategory">What needs fixing</label>
+            <select id="calcCategory">
+              <option value="">Choose a category</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcIssue">What's the problem</label>
+            <select id="calcIssue" disabled>
+              <option value="">Choose a category first</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-solid" id="calcBtn" style="width:100%;">Get estimate</button>
+        </div>
+        <div class="calc-result">
+          <div class="price-out" id="calcOutput"><small>Estimated range</small>Select above</div>
+          <p id="calcCopy">Choose an item and issue on the left, then tap "Get estimate" to see a typical price range in rupees.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="sec-kicker">How it works</span><h2>Four steps, no surprises</h2></div>
+        <p>Same sequence whether it's a phone screen or a geyser that won't heat.</p>
+      </div>
+      <div class="process scroll-x">
+        <div class="step"><div class="step-num mono">01</div><h3>Book a slot</h3><p>Call, WhatsApp, or fill the form — pick a time that works for you.</p></div>
+        <div class="step"><div class="step-num mono">02</div><h3>Free diagnosis</h3><p>Technician inspects on arrival and quotes a flat price before touching anything.</p></div>
+        <div class="step"><div class="step-num mono">03</div><h3>You approve, we repair</h3><p>Nothing starts until you say yes to the price. Most jobs finish in one visit.</p></div>
+        <div class="step"><div class="step-num mono">04</div><h3>Pay &amp; get your bill</h3><p>Cash, UPI, or card. GST invoice given on request, plus a 6-month warranty.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE BOARD -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="sec-kicker">Typical pricing</span><h2>What jobs usually cost</h2></div>
+        <p>Starting prices in rupees from recent service tickets — your exact quote comes after the free diagnosis.</p>
+      </div>
+      <div class="board scroll-x">
+        <span class="board-title mono">TODAY'S RATE CARD</span>
+        <div class="price-row"><div><span class="job">AC gas refill</span><span class="desc">1 to 2 ton split or window AC</span></div><span class="amt">₹1,200 – ₹2,200</span></div>
+        <div class="price-row"><div><span class="job">Washing machine service</span><span class="desc">Drainage, motor, general checkup</span></div><span class="amt">₹349 – ₹2,200</span></div>
+        <div class="price-row"><div><span class="job">RO filter change</span><span class="desc">Includes standard replacement filter</span></div><span class="amt">₹599 – ₹1,200</span></div>
+        <div class="price-row"><div><span class="job">Geyser repair</span><span class="desc">No heating, leakage, thermostat</span></div><span class="amt">₹399 – ₹899</span></div>
+        <div class="price-row"><div><span class="job">Mobile screen replacement</span><span class="desc">Most current Android &amp; iPhone models</span></div><span class="amt">₹1,499 – ₹7,999</span></div>
+        <div class="price-row"><div><span class="job">Furniture hinge / drawer repair</span><span class="desc">Wardrobes, cabinets, drawers</span></div><span class="amt">₹199 – ₹999</span></div>
+        <div class="price-row"><div><span class="job">Anything else</span><span class="desc">Custom jobs quoted after inspection</span></div><span class="amt">Free estimate</span></div>
+        <p class="board-note">₹99 visiting charge applies and is waived if you go ahead with the repair. GST invoice available on every job, on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS CAROUSEL -->
+  <section id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="sec-kicker">Reviews</span><h2>Homes that got their stuff working again</h2></div>
+        <p>From recent service tickets across our cities.</p>
+      </div>
+      <div class="carousel">
+        <div class="car-track" id="carTrack">
+          <div class="car-slide"><div class="testi-card ticket"><span class="stars">★★★★★</span><blockquote>Technician called before arriving, showed the gas pressure reading on his gauge, then quoted the price. No pressure to say yes.</blockquote><div class="testi-who"><span>Ananya Rao</span><span>AC gas refill, Bengaluru</span></div></div></div>
+          <div class="car-slide"><div class="testi-card ticket"><span class="stars">★★★★★</span><blockquote>Booked on WhatsApp at 9pm, technician was at my door by 10am with the exact spare part for my machine's drum bearing.</blockquote><div class="testi-who"><span>Rohit Verma</span><span>Washing machine, Delhi NCR</span></div></div></div>
+          <div class="car-slide"><div class="testi-card ticket"><span class="stars">★★★★★</span><blockquote>Our RO had been leaking for weeks. Fixed in twenty minutes and they explained why it kept happening so it won't repeat.</blockquote><div class="testi-who"><span>Meenakshi Iyer</span><span>RO installation, Chennai</span></div></div></div>
+          <div class="car-slide"><div class="testi-card ticket"><span class="stars">★★★★★</span><blockquote>Geyser installation before winter, on time, and they even checked the wiring for free while they were at it.</blockquote><div class="testi-who"><span>Farhan Sheikh</span><span>Geyser install, Jaipur</span></div></div></div>
+        </div>
+        <div class="car-controls">
+          <button class="car-arrow" id="carPrev" aria-label="Previous review">‹</button>
+          <div class="car-dots" id="carDots"></div>
+          <button class="car-arrow" id="carNext" aria-label="Next review">›</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="sec-kicker">FAQ</span><h2>Before you book</h2></div>
+        <p>The questions we hear most from first-time customers.</p>
+      </div>
+      <div id="faqList">
+        <div class="faq-item" data-open="false">
+          <button class="faq-q"><span>Do you give a GST bill?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. Every completed job comes with a proper GST invoice on request, for both individual and business customers.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q"><span>What payment methods do you accept?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Cash, UPI (Google Pay, PhonePe, Paytm), and debit or credit cards — technicians carry a card machine for on-the-spot payment.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q"><span>Is there a visiting or diagnosis charge?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">A ₹99 visiting charge applies for the technician's time and travel. It's fully waived if you go ahead with the repair.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q"><span>Do technicians carry spare parts?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Most common spares — filters, thermostats, hinges, capacitors — are carried on the first visit. Uncommon parts may need a follow-up trip, which we'll tell you upfront.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q"><span>What if the same problem comes back?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Every repair carries a 6-month workmanship warranty. If the same issue returns within that window, we fix it again at no extra cost.</div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q"><span>Which cities do you currently serve?</span><span class="plus">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Delhi NCR, Mumbai, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Jaipur, Ahmedabad, and Lucknow, with more cities opening up each quarter. Use the pincode checker near the top of the page to confirm your area.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <span class="sec-kicker">Contact</span>
+        <h2 style="margin-bottom:24px;">Book your repair</h2>
+        <div class="info-block"><h3>Support hours</h3><p>Mon–Sat 8:00 AM – 9:00 PM<br>Sunday 9:00 AM – 5:00 PM</p></div>
+        <div class="info-block"><h3>Head office</h3><p>412 Foundry Lane, Malviya Nagar<br>Jaipur, Rajasthan 302017</p></div>
+        <div class="info-block"><h3>Phone &amp; WhatsApp</h3><p>+91 98123 45678</p></div>
+        <div class="info-block"><h3>Cities served</h3><p>Delhi NCR, Mumbai, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, Jaipur, Ahmedabad, Lucknow</p></div>
+      </div>
+
+      <div>
+        <form class="form-ticket ticket" id="workOrderForm">
+          <div class="field-row">
+            <div class="field"><label for="name">Your name</label><input type="text" id="name" name="name" required></div>
+            <div class="field"><label for="contact">Phone number</label><input type="tel" id="contact" name="contact" placeholder="10-digit mobile number" required></div>
+          </div>
+          <div class="field">
+            <label for="category">What needs fixing</label>
+            <select id="category" name="category" required>
+              <option value="">Choose a category</option>
+              <option>AC or refrigerator</option>
+              <option>Washing machine</option>
+              <option>RO or water purifier</option>
+              <option>Geyser or water heater</option>
+              <option>Mobile, laptop or TV</option>
+              <option>Kitchen appliances</option>
+              <option>Furniture or modular</option>
+              <option>Fans or electrical</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="issue">Describe the problem</label>
+            <textarea id="issue" name="issue" placeholder="e.g. AC not cooling, makes a rattling noise" required></textarea>
+          </div>
+          <div class="field">
+            <label for="pincodeForm">Area pincode</label>
+            <input type="text" id="pincodeForm" inputmode="numeric" maxlength="6" placeholder="6-digit pincode" required>
+          </div>
+          <div class="form-foot">
+            <button type="submit" class="btn btn-solid">Submit booking</button>
+            <button type="button" class="btn btn-wa" id="waSend">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px;"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.8-1.4-1.7-1.5-2-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.9 14a8.2 8.2 0 0 1-11.7 1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12a8.1 8.1 0 0 1-2.3 4z"/></svg>
+              Send on WhatsApp instead
+            </button>
+            <span class="form-note">We'll call within an hour during support hours to confirm your free quote.</span>
+          </div>
+        </form>
+
+        <div class="confirm ticket" id="confirmTicket">
+          <span class="sec-kicker" style="display:inline-block;">Booking received</span>
+          <h3 style="font-size:1.4rem; text-transform:uppercase;">A technician will be assigned shortly</h3>
+          <div class="num" id="confirmNum">#FM-0000</div>
+          <p style="color:var(--ink-soft);">We'll call your number within an hour during support hours with an arrival time and a free quote.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<a href="https://wa.me/919812345678?text=Hi%20FixMistri%2C%20I%20need%20help%20with%20a%20repair" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.8-1.4-1.7-1.5-2-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.4-1 .2-.5.2-.9.1-1z"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.9 14a8.2 8.2 0 0 1-11.7 1l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 20.2 12a8.1 8.1 0 0 1-2.3 4z"/></svg>
+</a>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand-name" style="font-size:1.3rem;">FixMistri</span>
+        <p style="margin-top:12px; max-width:34ch;">Doorstep repair for the things that keep an Indian home running. Free diagnosis, upfront pricing, GST invoice on request.</p>
+      </div>
+      <div><h4>SERVICES</h4><ul><li><a href="#services">AC &amp; refrigerator</a></li><li><a href="#services">Washing machine</a></li><li><a href="#services">RO &amp; geyser</a></li><li><a href="#services">Mobile &amp; laptop</a></li></ul></div>
+      <div><h4>SHOP</h4><ul><li><a href="#calculator">Get an estimate</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>REACH US</h4><ul><li>+91 98123 45678</li><li>Jaipur, Rajasthan</li><li>10+ cities across India</li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> FixMistri — a fictional business created for demonstration.</span>
+      <span>Original design, not a copy of any commercial template.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
