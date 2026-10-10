@@ -256,3 +256,53 @@
     });
   }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
   reveals.forEach(reveal => revealObserver.observe(reveal));
+
+  // ---------- AI Chat Widget Logic ----------
+  const chatToggle = document.getElementById('chatToggle');
+  const chatWidget = document.getElementById('chatWidget');
+  const chatClose = document.getElementById('chatClose');
+  const chatInput = document.getElementById('chatInput');
+  const chatSend = document.getElementById('chatSend');
+  const chatBody = document.getElementById('chatBody');
+
+  function toggleChat() {
+    chatWidget.classList.toggle('open');
+  }
+  
+  if(chatToggle && chatWidget && chatClose) {
+    chatToggle.addEventListener('click', toggleChat);
+    chatClose.addEventListener('click', () => chatWidget.classList.remove('open'));
+  }
+
+  function appendChatMessage(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `chat-msg ${sender}`;
+    msgDiv.textContent = text;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function handleSendChat() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+    
+    appendChatMessage(text, 'user');
+    chatInput.value = '';
+    
+    setTimeout(() => {
+      let reply = "I can definitely help with that! Would you like me to book a technician or give you an estimate?";
+      if(text.toLowerCase().includes('price') || text.toLowerCase().includes('cost') || text.toLowerCase().includes('estimate')) {
+        reply = "For an exact price, I can give you an estimate if you tell me what needs fixing (like an AC, fridge, or washing machine). You can also use our AI Diagnoser tool!";
+      } else if (text.toLowerCase().includes('book') || text.toLowerCase().includes('schedule')) {
+        reply = "You can book directly using the form at the bottom of the page or click 'Book a repair' at the top.";
+      }
+      appendChatMessage(reply, 'ai');
+    }, 1000);
+  }
+
+  if(chatSend && chatInput) {
+    chatSend.addEventListener('click', handleSendChat);
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') handleSendChat();
+    });
+  }
